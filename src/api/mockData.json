@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Will he retire? One more loss and Fury is finished!",
+    "description": "The Usyk vs. Fury fight is on the horizon, but will it be the last for the \"Gypsy King\"? Tyson Fury, who recently narrowly escaped defeat in his last fights, is now facing the toughest challenge of his career - a confrontation with the undefeated Oleksandr Usyk.",
+    "content": "The Usyk vs. Fury fight is on the horizon, but will it be the last for the \"Gypsy King\"? Tyson Fury, who recently narrowly escaped defeat in his last fights, is now facing the toughest challenge of his career - a confrontation with the undefeated Oleksandr Usyk. This highly anticipated match could determine the future of one of boxing's most charismatic figures.",
+    "category": "Sports",
+    "publishedAt": "2024-01-15T10:00:00Z",
+    "source": "Adam Strong",
+    "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Astronomers discover new exoplanet in habitable zone",
+    "description": "Scientists have identified a potentially habitable exoplanet located in the Goldilocks zone of its star system, raising hopes for finding extraterrestrial life.",
+    "content": "Scientists have identified a potentially habitable exoplanet located in the Goldilocks zone of its star system, raising hopes for finding extraterrestrial life. The planet, located 120 light-years away, shows promising signs of having liquid water and an atmosphere suitable for life as we know it.",
+    "category": "Science",
+    "publishedAt": "2024-01-15T10:00:00Z",
+    "source": "Mary Frost",
+    "imageUrl": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 3,
+    "title": "Scientists have developed a new method of storing renewable energy",
+    "description": "Breakthrough technology allows for efficient long-term storage of solar and wind energy, potentially solving the renewable energy storage crisis.",
+    "content": "Breakthrough technology allows for efficient long-term storage of solar and wind energy, potentially solving the renewable energy storage crisis. The new method uses advanced battery technology combined with innovative chemical processes to store energy for extended periods without significant loss.",
+    "category": "Business",
+    "publishedAt": "2024-01-15T13:00:00Z",
+    "source": "Lucas Ray",
+    "imageUrl": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 4,
+    "title": "New vaccine against a rare disease has been successfully tested",
+    "description": "Medical researchers announce successful clinical trials of a new vaccine that could prevent a rare but deadly disease affecting thousands worldwide.",
+    "content": "Medical researchers announce successful clinical trials of a new vaccine that could prevent a rare but deadly disease affecting thousands worldwide. The vaccine showed 95% effectiveness in preventing the disease during phase 3 trials, with minimal side effects reported.",
+    "category": "Health",
+    "publishedAt": "2024-01-15T18:00:00Z",
+    "source": "Adam Strong",
+    "imageUrl": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 5,
+    "title": "The Rise of AI in Technology",
+    "description": "Exploring how artificial intelligence is transforming the tech landscape and revolutionizing various industries.",
+    "content": "Artificial intelligence (AI) is revolutionizing various sectors, including technology, healthcare, and finance. This article delves into the advancements in AI and its implications for the future of work and society.",
+    "category": "Technology",
+    "publishedAt": "2024-01-15T09:00:00Z",
+    "source": "Tech News",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 6,
+    "title": "Stock Market Trends in 2024",
+    "description": "An analysis of the current stock market trends and predictions for the future economic landscape.",
+    "content": "The stock market has seen significant fluctuations in 2024. This article provides insights into the trends and what investors can expect moving forward in the coming months.",
+    "category": "Business",
+    "publishedAt": "2024-01-15T11:00:00Z",
+    "source": "Business Daily",
+    "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 7,
+    "title": "The Future of Entertainment: Streaming Services",
+    "description": "How streaming services are changing the way we consume entertainment and reshaping the media industry.",
+    "content": "With the rise of streaming platforms, traditional media consumption is evolving. This article explores the impact of streaming on the entertainment industry and what the future holds.",
+    "category": "Entertainment",
+    "publishedAt": "2024-01-15T14:00:00Z",
+    "source": "Entertainment Today",
+    "imageUrl": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 8,
+    "title": "Health Benefits of a Balanced Diet",
+    "description": "Understanding the importance of nutrition for overall health and well-being.",
+    "content": "A balanced diet is crucial for maintaining good health. This article discusses the benefits of various food groups and how to incorporate them into your daily meals for optimal health.",
+    "category": "Health",
+    "publishedAt": "2024-01-15T08:00:00Z",
+    "source": "Health Magazine",
+    "imageUrl": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 9,
+    "title": "Global News Roundup",
+    "description": "A summary of significant global events happening this week across politics, economics, and social issues.",
+    "content": "Stay informed with our weekly roundup of important news from around the world, covering politics, economics, and social issues that are shaping our global community.",
+    "category": "General",
+    "publishedAt": "2024-01-15T12:00:00Z",
+    "source": "Global News",
+    "imageUrl": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 10,
+    "title": "Election Results Shake Political Landscape",
+    "description": "Recent election results have dramatically changed the political landscape, with new parties gaining significant ground.",
+    "content": "Recent election results have dramatically changed the political landscape, with new parties gaining significant ground. Analysts are calling this a historic shift in voter preferences and political alignment.",
+    "category": "Politics",
+    "publishedAt": "2024-01-15T15:00:00Z",
+    "source": "Political Times",
+    "imageUrl": "https://images.unsplash.com/photo-1529107386315-e38a4ce4f5c8?w=800&h=600&fit=crop"
+  }
+]
