@@ -10,13 +10,16 @@ import App from "./App";
 import "./index.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { FavoritesProvider } from "./context/FavoritesContext";
+import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <FavoritesProvider>
-        <App />
-      </FavoritesProvider>
+      <AuthProvider>
+        <FavoritesProvider>
+          <App />
+        </FavoritesProvider>
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

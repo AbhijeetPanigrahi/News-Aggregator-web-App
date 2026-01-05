@@ -1,6 +1,9 @@
 module.exports = {
-    purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-    darkMode: 'class', // or 'media' or 'class'
+    content: [
+        "./src/**/*.{js,jsx,ts,tsx}",
+        "./public/index.html"
+    ],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
@@ -13,14 +16,14 @@ module.exports = {
                 background: 'var(--color-background)',
                 surface: 'var(--color-surface)',
                 'surface-highlight': 'var(--color-surface-highlight)',
-                border: 'var(--color-border)', // Ensure this variable exists in index.css
+                border: 'var(--color-border)',
                 text: {
                     primary: 'var(--color-text-primary)',
                     secondary: 'var(--color-text-secondary)',
                     muted: 'var(--color-text-muted)',
                 },
                 accent: {
-                    main: 'var(--color-primary-main)', // Mapping accent.main to primary.main as per theme.js
+                    main: 'var(--color-primary-main)',
                     muted: 'var(--color-accent-muted)',
                 }
             },
@@ -28,9 +31,6 @@ module.exports = {
                 soft: 'var(--shadow-soft)',
             },
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [],
 }

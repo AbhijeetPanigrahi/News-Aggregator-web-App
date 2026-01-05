@@ -1,35 +1,41 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useFavorites } from "../context/FavoritesContext";
+import { useAuth } from "../context/AuthContext";
 import NewsCard from "../components/NewsCard";
-
-// Demo profile data
-const demoProfile = {
-  name: "Alex Morgan",
-  username: "@alexm",
-  bio: "Curious about tech, design, and sustainability. Coffee enthusiast.",
-  location: "San Francisco, CA",
-  joined: "January 2023",
-};
 
 const ProfilePage = () => {
   const { favorites } = useFavorites();
+  const { currentUser } = useAuth();
+
+  if (!currentUser) {
+    return (
+      <div className="w-full min-h-screen bg-background text-text-primary">
+        <Navbar />
+        <div className="flex justify-center items-center h-[50vh]">
+          <p className="text-xl">Please log in to view your profile.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Generate initial from email
+  const initial = currentUser.email ? currentUser.email[0].toUpperCase() : "U";
+  const username = currentUser.email ? currentUser.email.split('@')[0] : "User";
 
   return (
     <div className="w-full min-h-screen p-0 bg-background text-text-primary">
       <Navbar />
       <div className="max-w-[1100px] mx-auto py-8 px-8">
         <div className="flex items-center gap-5 mb-6">
-          <div className="w-24 h-24 rounded-full bg-surface-highlight flex items-center justify-center text-4xl text-text-primary shadow-soft">
-            A
+          <div className="w-24 h-24 rounded-full bg-surface-highlight flex items-center justify-center text-4xl text-text-primary shadow-soft font-bold">
+            {initial}
           </div>
           <div>
-            <h1 className="m-0 text-3xl font-extrabold text-text-primary">{demoProfile.name}</h1>
+            <h1 className="m-0 text-3xl font-extrabold text-text-primary">{username}</h1>
             <p className="mt-1 text-text-muted">
-              {demoProfile.username} • {demoProfile.location} • Joined{" "}
-              {demoProfile.joined}
+              {currentUser.email} • Joined recently
             </p>
-            <p className="mt-1 text-text-muted">{demoProfile.bio}</p>
           </div>
         </div>
 

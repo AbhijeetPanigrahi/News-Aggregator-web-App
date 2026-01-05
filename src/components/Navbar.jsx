@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { useAuth } from "../context/AuthContext";
 import SearchBar from "./SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faTimes, faSun, faMoon, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +13,16 @@ const Navbar = () => {
   const searchParams = new URLSearchParams(location.search);
   const currentCategory = searchParams.get("category") || "Top News";
   const { theme, toggleTheme } = useTheme();
+  const { currentUser, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      console.error("Failed to log out");
+    }
+  };
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -131,13 +142,32 @@ const Navbar = () => {
                   </a> */}
                 </div>
                 <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3 hidden md:block"></div>
-                <button
-                  title="Profile"
-                  onClick={() => history.push("/profile")}
-                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary"
-                >
-                  <span className="text-xl"><FontAwesomeIcon icon={faUser} /></span>
-                </button>
+                <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3 hidden md:block"></div>
+
+                {currentUser ? (
+                  <>
+                    <button
+                      title="Profile"
+                      onClick={() => history.push("/profile")}
+                      className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary mr-2"
+                    >
+                      <span className="text-xl"><FontAwesomeIcon icon={faUser} /></span>
+                    </button>
+                    <button
+                      onClick={handleLogout}
+                      className="whitespace-nowrap px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 bg-gray-200 dark:bg-gray-800 text-text-primary hover:bg-gray-300 dark:hover:bg-gray-700"
+                    >
+                      Log Out
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="whitespace-nowrap px-5 py-2 rounded-full font-bold text-sm transition-all duration-200 bg-primary-main text-white hover:bg-primary-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                  >
+                    Log In
+                  </Link>
+                )}
               </>
             )}
           </div>
