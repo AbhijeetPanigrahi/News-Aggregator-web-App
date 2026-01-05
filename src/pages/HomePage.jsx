@@ -26,7 +26,7 @@ const HomePage = () => {
     <div className="w-full min-h-screen bg-background text-text-primary font-sans selection:bg-accent-light selection:text-white">
       <Navbar />
 
-      <main className="max-w-[1280px] mx-auto px-6 py-8 md:px-10 lg:py-12">
+      <main className="max-w-[1280px] mx-auto px-4 py-6 md:px-10 md:py-12">
         {loading && <LoadingSpinner />}
         {error && <ErrorMessage message={error} />}
 

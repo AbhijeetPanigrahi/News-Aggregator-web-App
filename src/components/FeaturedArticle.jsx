@@ -30,7 +30,7 @@ const FeaturedArticle = ({ article = {} }) => {
       }}
       className="flex flex-col no-underline mb-0 group h-full"
     >
-      <div className="w-full h-[500px] overflow-hidden mb-8 bg-surface-highlight relative rounded-2xl shadow-sm">
+      <div className="w-full h-[280px] md:h-[500px] overflow-hidden mb-6 md:mb-8 bg-surface-highlight relative rounded-2xl shadow-sm">
         {articleImage && (
           <img
             src={articleImage}
@@ -59,7 +59,7 @@ const FeaturedArticle = ({ article = {} }) => {
           {articleTime && <span className="text-text-muted text-sm ml-auto">{articleTime}</span>}
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-black text-text-primary leading-[1.1] tracking-tighter group-hover:underline decoration-2 underline-offset-4">
+        <h1 className="text-3xl md:text-5xl font-black text-text-primary leading-[1.1] tracking-tighter group-hover:underline decoration-2 underline-offset-4">
           {articleTitle}
         </h1>
 

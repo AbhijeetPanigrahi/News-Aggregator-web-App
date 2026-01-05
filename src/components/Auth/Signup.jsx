@@ -3,13 +3,15 @@ import React, { useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock, faArrowLeft, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const { signup } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -47,10 +49,18 @@ export default function Signup() {
             <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-surface z-10 w-full lg:w-[500px]">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
 
-                    <div className="mb-10">
+                    <div className="mb-10 flex justify-between items-center">
                         <Link to="/" className="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2 group">
                             <FontAwesomeIcon icon={faArrowLeft} className="group-hover:-translate-x-1 transition-transform" /> Back to Home
                         </Link>
+
+                        <button
+                            onClick={toggleTheme}
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-highlight text-text-primary hover:opacity-80 transition-opacity"
+                            title="Toggle Theme"
+                        >
+                            {theme === 'light' ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
+                        </button>
                     </div>
 
                     <div className="text-center lg:text-left">

@@ -53,7 +53,7 @@ const NewsCard = ({ article = {}, featured = false }) => {
           <FavoriteButton article={article} />
         </div>
       </div>
-      <div className="flex flex-col p-5 grow">
+      <div className="flex flex-col p-4 sm:p-5 grow">
         <h3 className={`text-text-primary mb-3 font-bold leading-snug tracking-tight line-clamp-2 ${featured ? 'text-2xl' : 'text-lg'}`}>
           {articleTitle}
         </h3>

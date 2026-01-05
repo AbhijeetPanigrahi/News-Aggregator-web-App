@@ -27,9 +27,9 @@ const SideArticle = ({ article = {} }) => {
         pathname: `/article/${article.id}`,
         state: { article: article }
       }}
-      className="flex gap-6 no-underline mb-8 pb-8 border-b border-border last:border-0 last:mb-0 last:pb-0 group"
+      className="flex flex-col sm:flex-row gap-4 sm:gap-6 no-underline mb-8 pb-8 border-b border-border last:border-0 last:mb-0 last:pb-0 group"
     >
-      <div className="w-[180px] h-[120px] shrink-0 overflow-hidden bg-surface-highlight relative rounded-2xl">
+      <div className="w-full h-[200px] sm:w-[180px] sm:h-[120px] shrink-0 overflow-hidden bg-surface-highlight relative rounded-2xl">
         {articleImage && (
           <img
             src={articleImage}

@@ -15,15 +15,6 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { currentUser, logout } = useAuth();
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      history.push("/login");
-    } catch {
-      console.error("Failed to log out");
-    }
-  };
-
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const categories = [
@@ -69,7 +60,26 @@ const Navbar = () => {
       }
       history.push({ search: params.toString() });
     }
+    setIsSearchOpen(false);
   };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      console.error("Failed to log out");
+    }
+  };
+
+  const handleProfileClick = () => {
+    if (currentUser) {
+      history.push("/profile");
+    } else {
+      history.push("/login");
+    }
+  };
+
 
   return (
     <header className="bg-surface sticky top-0 z-50 transition-colors duration-300 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
@@ -103,13 +113,6 @@ const Navbar = () => {
                 >
                   <span className="text-xl"><FontAwesomeIcon icon={faSearch} /></span>
                 </button>
-                {/* <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3"></div>
-                <button
-                  title="Menu"
-                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary"
-                >
-                  <span className="text-xl"><FontAwesomeIcon icon={faBars} /></span>
-                </button> */}
               </>
             )}
           </div>
@@ -119,7 +122,7 @@ const Navbar = () => {
             {!isSearchOpen && (
               <Link
                 to="/"
-                className="text-3xl font-black text-text-primary tracking-tight no-underline hover:opacity-80 transition-opacity"
+                className="text-2xl md:text-3xl font-black text-text-primary tracking-tight no-underline hover:opacity-80 transition-opacity"
               >
                 VERTONEWS
               </Link>
@@ -129,52 +132,63 @@ const Navbar = () => {
           {/* Right Column */}
           <div className="flex items-center justify-end">
             {!isSearchOpen && (
-              <>
-                <div className="hidden md:flex items-center mr-2">
-                  <button onClick={toggleTheme} className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary font-bold text-lg" title="Toggle Theme">
-                    {theme === 'light' ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
-                  </button>
-                  {/* <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary font-bold text-lg">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                  <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary font-bold text-lg">
-                    <FontAwesomeIcon icon={faFacebook} />
-                  </a> */}
-                </div>
-                <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3 hidden md:block"></div>
-                <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3 hidden md:block"></div>
+              <div className="flex items-center">
+                {/* Theme Toggle - Visible on Desktop only, moved to pages on mobile */}
+                <button
+                  onClick={toggleTheme}
+                  className="hidden md:flex w-10 h-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary font-bold text-lg mr-1"
+                  title="Toggle Theme"
+                >
+                  {theme === 'light' ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
+                </button>
 
-                {currentUser ? (
-                  <>
-                    <button
-                      title="Profile"
-                      onClick={() => history.push("/profile")}
-                      className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary mr-2"
+                {/* Desktop: Separator & Auth Buttons */}
+                <div className="hidden md:flex items-center">
+                  <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-3 block"></div>
+
+                  {currentUser ? (
+                    <>
+                      <button
+                        title="Profile"
+                        onClick={() => history.push("/profile")}
+                        className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary mr-2"
+                      >
+                        <span className="text-xl"><FontAwesomeIcon icon={faUser} /></span>
+                      </button>
+                      <button
+                        onClick={handleLogout}
+                        className="whitespace-nowrap px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 bg-gray-200 dark:bg-gray-800 text-text-primary hover:bg-gray-300 dark:hover:bg-gray-700"
+                      >
+                        Log Out
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="whitespace-nowrap px-5 py-2 rounded-full font-bold text-sm transition-all duration-200 bg-primary-main text-white hover:bg-primary-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                      <span className="text-xl"><FontAwesomeIcon icon={faUser} /></span>
-                    </button>
-                    <button
-                      onClick={handleLogout}
-                      className="whitespace-nowrap px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 bg-gray-200 dark:bg-gray-800 text-text-primary hover:bg-gray-300 dark:hover:bg-gray-700"
-                    >
-                      Log Out
-                    </button>
-                  </>
-                ) : (
-                  <Link
-                    to="/login"
-                    className="whitespace-nowrap px-5 py-2 rounded-full font-bold text-sm transition-all duration-200 bg-primary-main text-white hover:bg-primary-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      Log In
+                    </Link>
+                  )}
+                </div>
+
+                {/* Mobile: Profile Icon ONLY */}
+                <div className="flex md:hidden">
+                  <button
+                    onClick={handleProfileClick}
+                    className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-primary text-xl"
+                    title={currentUser ? "Profile" : "Log In"}
                   >
-                    Log In
-                  </Link>
-                )}
-              </>
+                    <FontAwesomeIcon icon={faUser} />
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>
 
-        {/* Navigation Categories */}
-        <nav className="flex items-center justify-between pb-4 pt-2 overflow-x-auto no-scrollbar mask-image-scroll">
+        {/* Navigation Categories (Desktop/Tablet) */}
+        <nav className="flex items-center justify-between pb-4 pt-2 overflow-x-auto no-scrollbar mask-image-scroll md:flex">
           {categories.map((category) => {
             const categoryMap = {
               Politics: "Politics",
@@ -209,7 +223,6 @@ const Navbar = () => {
             );
           })}
         </nav>
-
       </div>
     </header>
   );
