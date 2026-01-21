@@ -60,7 +60,6 @@ const Navbar = () => {
       }
       history.push({ search: params.toString() });
     }
-    setIsSearchOpen(false);
   };
 
   const handleLogout = async () => {

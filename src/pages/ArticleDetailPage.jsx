@@ -9,6 +9,7 @@ import ReactionSystem from "../components/ReactionSystem";
 import { useFavorites } from "../context/FavoritesContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faNewspaper, faHeart, faShieldAlt, faShare, faTimes } from "@fortawesome/free-solid-svg-icons";
+import AiConcierge from "../components/AiConcierge";
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
@@ -189,6 +190,9 @@ const ArticleDetailPage = () => {
             <div className="whitespace-pre-wrap font-serif">
               {article.content || "Content not available for full preview. Please visit the source to read the entire article."}
             </div>
+
+            {/* AI Concierge Panel */}
+            <AiConcierge articleContent={article.content || article.description || "No content available."} />
 
             <div className="mt-12 pt-8 border-t border-border">
               <h3 className="text-lg font-bold mb-4 font-sans text-text-primary">What do you think?</h3>

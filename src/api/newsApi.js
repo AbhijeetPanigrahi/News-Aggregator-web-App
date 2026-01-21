@@ -49,23 +49,41 @@ export const fetchNews = async (
       title: article.title,
       description: article.description,
       content: article.content,
-      category: category === "Home" || category === "Top News" ? "General" : category,
+      category:
+        category === "Home" || category === "Top News" ? "General" : category,
       publishedAt: article.publishedAt,
       source: article.source.name,
       imageUrl: article.urlToImage,
-      url: article.url // Keep original URL
+      url: article.url, // Keep original URL
     }));
 
     // Client-side filtering for 'Politics' since API doesn't support it directly
     if (category === "Politics") {
-      const politicsKeywords = ["biden", "trump", "election", "senate", "house", "government", "law", "court", "policy", "political", "congress", "democrat", "republican", "minister", "president"];
-      articles = articles.filter(article => {
+      const politicsKeywords = [
+        "biden",
+        "trump",
+        "election",
+        "senate",
+        "house",
+        "government",
+        "law",
+        "court",
+        "policy",
+        "political",
+        "congress",
+        "democrat",
+        "republican",
+        "minister",
+        "president",
+      ];
+      articles = articles.filter((article) => {
         const text = (article.title + " " + article.description).toLowerCase();
-        return politicsKeywords.some(keyword => text.includes(keyword));
+        // .some() is an array method that checks if at least one element in an array satisfies a condition.
+        return politicsKeywords.some((keyword) => text.includes(keyword));
       });
       // Fallback: if no specific politics news found, just show generic general news to avoid empty page
       if (articles.length === 0) {
-        // re-fetch general without filter if strict filter returns nothing? 
+        // re-fetch general without filter if strict filter returns nothing?
         // actually let's just keep the filtered list, potentially empty is better than wrong data.
         // OR allow some general news.
         // Let's stick to the filter for accuracy.
@@ -92,7 +110,6 @@ export const fetchNews = async (
       totalResults: articles.length,
       articles: articles.slice(startIndex, endIndex),
     };
-
   } catch (error) {
     console.warn("API Error, falling back to mock logic if needed:", error);
     throw new Error("Failed to fetch news from valid source.");
