@@ -25,7 +25,8 @@ module.exports = async (req, res) => {
 
     try {
         const { prompt } = req.body;
-        const API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+        // Check for both variable names to be safe
+        const API_KEY = process.env.REACT_APP_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
 
         if (!prompt) {
             return res.status(400).json({ error: "Prompt is required" });
